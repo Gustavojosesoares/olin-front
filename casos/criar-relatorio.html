@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Relatório Final</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="criar-relatorio.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Criar Relatório Final</h1>
+      <button id="logoutBtn">Sair</button>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="../admin/admin.html" id="adminDashboardLink" style="display: none">Dashboard</a>
+        </li>
+        <li>
+          <a href="../perito/perito.html" id="peritoDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="../assistente/assistente.html" id="assistenteDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li><a href="../casos/casos.html">Casos</a></li>
+        <li><a href="listar-evidencias.html?casoId=SEU_CASE_ID">Evidências</a></li>
+        <li><a href="abrir-evidencia.html?id=SEU_EVIDENCIA_ID">Abrir Evidência</a></li>
+        <li><a href="#">Criar Relatório Final</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="criarRelatorioForm">
+        <h2>Relatório Final para o Caso <span id="casoIdExibicao"></span></h2>
+        <form id="relatorioFinalForm">
+          <input type="hidden" id="casoId" name="caseId" />
+          <div class="form-group">
+            <label for="titulo">Título do Relatório:</label>
+            <input type="text" id="titulo" name="titulo" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label for="texto">Texto do Relatório Final:</label>
+            <textarea id="texto" name="texto" class="form-input" rows="10" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Finalizar Caso e Criar Relatório</button>
+          <div id="mensagem" class="mensagem"></div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Sistema</p>
+    </footer>
+    <script src="../js/logout.js"></script>
+    <script src="criar-relatorio.js"></script>
+  </body>
+</html>
