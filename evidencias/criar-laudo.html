@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Laudo</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="criar-laudo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Criar Laudo</h1>
+      <button id="logoutBtn">Sair</button>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="../admin/admin.html" id="adminDashboardLink" style="display: none">Dashboard</a>
+        </li>
+        <li>
+          <a href="../perito/perito.html" id="peritoDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="../assistente/assistente.html" id="assistenteDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li><a href="../casos/casos.html">Casos</a></li>
+        <li><a href="listar-evidencias.html?casoId=SEU_CASE_ID">Evidências</a></li>
+        <li><a href="abrir-evidencia.html?id=SEU_EVIDENCIA_ID">Abrir Evidência</a></li>
+        <li class="active"><a href="#">Criar Laudo</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="criarLaudoForm">
+        <h2>Novo Laudo para Evidência <span id="evidenciaIdExibicao"></span></h2>
+        <form id="laudoForm">
+          <input type="hidden" id="evidenciaId" name="evidenciaId" />
+          <div class="form-group">
+            <label for="titulo">Título do Laudo:</label>
+            <input type="text" id="titulo" name="titulo" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label for="descricao">Descrição Detalhada:</label>
+            <textarea id="descricao" name="descricao" class="form-input"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="conclusao">Conclusões:</label>
+            <textarea id="conclusao" name="conclusao" class="form-input"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="anexos">Anexos:</label>
+            <input type="file" id="anexos" name="anexos" multiple class="form-input" />
+          </div>
+          <button type="submit" class="submit-button">Salvar Laudo</button>
+          <div id="mensagem" class="mensagem"></div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Sistema</p>
+    </footer>
+    <script src="../js/logout.js"></script>
+    <script src="criar-laudo.js"></script>
+  </body>
+</html>

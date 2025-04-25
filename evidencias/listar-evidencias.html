@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evidências do Caso</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="listar-evidencias.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Evidências do Caso</h1>
+      <button id="logoutBtn">Sair</button>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="../admin/admin.html" id="adminDashboardLink" style="display: none">Dashboard</a>
+        </li>
+        <li>
+          <a href="../perito/perito.html" id="peritoDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="../assistente/assistente.html" id="assistenteDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li><a href="../casos/casos.html">Casos</a></li>
+        <li class="active"><a href="#">Evidências</a></li>
+        <li id="criarEvidenciaMenuItem"><a href="#" id="criarEvidenciaLink">Criar Evidência</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="listaDeEvidencias">
+        <h2>Lista de Evidências</h2>
+        <ul id="evidenciasList"></ul>
+      </div>
+      <div id="mensagem" class="mensagem"></div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Sistema</p>
+    </footer>
+    <script src="../js/logout.js"></script>
+    <script src="listar-evidencias.js"></script>
+  </body>
+</html>

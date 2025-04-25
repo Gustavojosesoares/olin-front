@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abrir Evidência</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="abrir-evidencia.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Detalhes da Evidência</h1>
+      <button id="logoutBtn">Sair</button>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="../admin/admin.html" id="adminDashboardLink" style="display: none">Dashboard</a>
+        </li>
+        <li>
+          <a href="../perito/perito.html" id="peritoDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="../assistente/assistente.html" id="assistenteDashboardLink" style="display: none"
+            >Dashboard</a
+          >
+        </li>
+        <li><a href="../casos/casos.html">Casos</a></li>
+        <li><a href="listar-evidencias.html?casoId=SEU_CASE_ID">Evidências</a></li>
+        <li><a href="#">Abrir Evidência</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="evidenciaDetalhes">
+        <h2>Detalhes da Evidência</h2>
+        <p><strong>Título:</strong> <span id="evidenciaTitulo"></span></p>
+        <p><strong>Descrição:</strong> <span id="evidenciaDescricao"></span></p>
+        <p><strong>Local de Coleta:</strong> <span id="evidenciaLocalColeta"></span></p>
+        <p><strong>Data de Coleta:</strong> <span id="evidenciaDataColeta"></span></p>
+        <p><strong>Arquivo:</strong> <span id="evidenciaArquivo"></span></p>
+      </div>
+
+      <button id="criarLaudoBtn">Criar Laudo</button>
+
+      <div id="mensagem" class="mensagem"></div>
+    </main>
+    <section id="laudosEvidencia">
+      <h2>Laudos Associados</h2>
+      <ul id="listaDeLaudos"></ul>
+      <div id="mensagemLaudos" class="mensagem"></div>
+    </section>
+    <footer>
+      <p>&copy; 2025 Sistema</p>
+    </footer>
+    <script src="../js/logout.js"></script>
+    <script src="abrir-evidencia.js"></script>
+  </body>
+</html>

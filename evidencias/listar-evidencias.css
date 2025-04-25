@@ -1,0 +1,39 @@
+/* css/listar-evidencias.css */
+#listaDeEvidencias {
+  margin-bottom: 20px;
+}
+
+#evidenciasList {
+  list-style: none;
+  padding: 0;
+}
+
+#evidenciasList li {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evidencia-acoes button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.visualizar-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.criar-laudo-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
