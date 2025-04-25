@@ -1,0 +1,46 @@
+/* css/admin.css */
+header {
+  background-color: #28a745; /* Cor verde para admin */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.admin-nav {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.admin-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-nav li {
+  margin: 0 15px;
+}
+
+.admin-nav li a {
+  text-decoration: none;
+  color: #495057;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.admin-nav li a:hover {
+  color: #007bff;
+}
+
+.admin-nav li a.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+.admin-content {
+  padding: 20px;
+}
