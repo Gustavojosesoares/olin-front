@@ -1,0 +1,392 @@
+:root {
+  --cor-bordo-profundo: #380f17;
+  --cor-vinho-intenso: #8f0b13;
+  --cor-vermelho-vibrante: #dc2011;
+  --cor-bege-claro: #efdfc5;
+  --cor-cinza-escuro: #2c2f33;
+  --cor-cinza-medio: #3c3e42;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  overflow: auto;
+  display: block;
+  background-color: #2c2f33;
+  color: #efdfc5;
+}
+
+main {
+  margin-left: 70px; /* compensação da sidebar fixa */
+  padding: 1rem;
+  overflow: auto;
+  background-color: #2c2f33;
+  color: #efdfc5;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Estilo geral do corpo */
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #2c2f33 !important; /* Fundo escuro principal */
+  color: #efdfc5 !important; /* Texto claro geral */
+}
+/* === Estilo próprio para o cabeçalho === */
+header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 1000px;
+  background-color: #3c3e42;
+  color: #efdfc5;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid #222;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.custom-search {
+  display: flex;
+  align-items: center;
+}
+
+.custom-search .input-group-text,
+.custom-search .form-control {
+  background-color: #222;
+  border: 1px solid #444;
+  color: #efdfc5;
+  font-size: 0.85rem;
+}
+
+.custom-search .form-control::placeholder {
+  color: #efdfc5;
+}
+
+.header-right span,
+.header-right strong,
+.header-right i {
+  color: #efdfc5;
+  font-size: 0.85rem;
+}
+
+/* === Área principal do layout === */
+.container-fluid {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 70px;
+  background-color: #3c3e42;
+  height: 100vh;
+  border-right: 1px solid #2c2f33;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+}
+
+.sidebar-logo-img {
+  width: 32px;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-logo-text {
+  font-size: 0.75rem;
+  color: #efdfc5;
+  font-weight: bold;
+}
+
+.sidebar .nav-link {
+  color: #efdfc5;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background-color: #333;
+  color: #efdfc5;
+  border-left: 4px solid #dc2011;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: attr(title);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #efdfc5;
+  color: #2c2f33;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  margin-left: 0.5rem;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+}
+/* === Estatísticas de Casos === */
+#estatisticas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.estatistica-box {
+  min-width: 160px;
+  flex: 1;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.estatistica-box h6 {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.estatistica-box p {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* === Lista de Casos === */
+#listaDeCasos {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#listaDeCasos h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.list-group-flush .list-group-item {
+  background-color: transparent;
+  border-color: #444;
+  color: #efdfc5;
+}
+
+#novoCasoBtn {
+  font-size: 0.875rem;
+}
+
+/* === Mensagem de Erro/Feedback === */
+.mensagem {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #ff4d4d;
+}
+
+/* Dark Theme Tweak (caso precise garantir contraste) */
+body,
+main {
+  background-color: #2c2f33;
+  color: #efdfc5;
+}
+
+/* === Tabela mais larga e parecida com o card === */
+.table-responsive {
+  flex-grow: 1;
+  max-height: 100%;
+  background-color: #2a2a2a; /* Cor próxima ao card */
+  border-radius: 6px;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+}
+
+#listaDeCasos {
+  background-color: #252b28;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#listaDeCasos table {
+  font-size: 0.9rem;
+}
+
+#listaDeCasos th {
+  font-weight: 600;
+}
+
+#listaDeCasos .form-control,
+#listaDeCasos .form-select {
+  font-size: 0.85rem;
+  min-width: 160px;
+}
+
+#listaDeCasos .btn-outline-primary {
+  font-size: 0.85rem;
+  border-radius: 30px;
+  padding: 0.4rem 1.2rem;
+}
+
+#listaDeCasos .btn-sm {
+  padding: 0.2rem 0.6rem;
+}
+
+/* Cabeçalho da tabela com fundo preto e texto branco */
+#listaDeCasos thead {
+  background-color: #2c2f33 !important;
+  color: #efdfc5 !important;
+}
+
+#listaDeCasos th {
+  font-weight: bold;
+  padding: 0.75rem;
+}
+
+/* Envolve a tabela com largura total */
+#listaDeCasos {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: #3c3e42 !important;
+  color: #efdfc5;
+  border-radius: 0;
+  box-shadow: none;
+  overflow-y: auto;
+}
+
+/* Tabela deve ocupar todo o espaço possível */
+#listaDeCasos table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+#listaDeCasos th,
+#listaDeCasos td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Campos de busca e ordenação no topo com espaçamento mínimo */
+#listaDeCasos .form-control,
+#listaDeCasos .form-select {
+  font-size: 0.85rem;
+  min-width: 160px;
+}
+
+#listaDeCasos .btn-outline-primary {
+  font-size: 0.85rem;
+  border-radius: 30px;
+  padding: 0.4rem 1.2rem;
+}
+
+/* Rodapé da tabela grudado na parte inferior */
+#listaDeCasos .d-flex.justify-content-between {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 70px; /* mesmo valor da largura da sidebar */
+  right: 0;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  background-color: var(--cor-cinza-escuro);
+  color: var(--cor-bege-claro);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+footer {
+  background-color: var(--cor-cinza-escuro);
+  color: var(--cor-bege-claro);
+}
+/* === Elementos no cabeçalho (icones, texto, relógio) === */
+.header-right i,
+.header-right strong,
+.header-right span {
+  color: #efdfc5 !important;
+}
+
+/* === Botão de menu para mobile === */
+button.btn,
+button.btn:hover {
+  color: #efdfc5;
+}
+
+/* === Responsividade para telas pequenas (mobile) === */
+@media (max-width: 768px) {
+  .card-grid {
+    flex-direction: column; /* Cards empilhados no mobile */
+  }
+
+  aside {
+    display: none; /* Esconde menu lateral */
+  }
+
+  main {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .table-responsive {
+    max-height: none;
+  }
+
+  header,
+  footer {
+    text-align: center;
+  }
+
+  .custom-search {
+    flex: 1 1 auto;
+  }
+}
