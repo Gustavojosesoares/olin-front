@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Meu Projeto Web</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="banco-de-casos.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="d-flex align-items-center gap-2">
+        <img src="../images/olin.png" alt="Logo OLIN" class="logo" />
+        <span class="logo-text fw-bold fs-5">OLIN</span>
+      </div>
+
+      <div class="d-flex align-items-center gap-4 header-right">
+        <div class="input-group custom-search">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          <input type="text" class="form-control custom-search-input" placeholder="Buscar..." />
+        </div>
+        <div class="d-flex align-items-center gap-3 small text-muted">
+          <span><i class="bi bi-person-fill me-1"></i><strong id="userRoleDisplay"></strong></span>
+          <span><i class="bi bi-clock me-1"></i><span id="currentDateTime"></span></span>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <aside class="col-md-2 d-none d-md-block bg-light vh-100 p-3">
+          <nav class="nav flex-column">
+            <a href="../index.html" class="nav-link active">Início</a>
+            <a href="../bancocasos/bancocasos.html" class="nav-link">Banco de Casos</a>
+            <a href="../historico/historico.html" class="nav-link">Histórico</a>
+            <a href="../usuarios/usuarios.html" class="nav-link hidden-feature" id="manageUsersLink"
+              >Usuários</a
+            >
+            <a href="../ajustes/ajustes.html" class="nav-link">Ajustes</a>
+            <a href="#" class="nav-link" id="logoutButton">Sair</a>
+          </nav>
+        </aside>
+
+        <div class="col-12 d-md-none text-end">
+          <button
+            class="btn m-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#menuMobile"
+            aria-controls="menuMobile"
+            aria-label="Toggle navigation"
+          >
+            <i class="bi bi-list fs-3"></i>
+          </button>
+        </div>
+
+        <div
+          class="offcanvas offcanvas-start d-md-none"
+          tabindex="-1"
+          id="menuMobile"
+          aria-labelledby="menuMobileLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="menuMobileLabel">OLIN</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="nav flex-column">
+              <a href="../index.html" class="nav-link">Início</a>
+              <a href="../bancocasos/bancocasos.html" class="nav-link active">Banco de Casos</a>
+              <a href="../historico/historico.html" class="nav-link">Histórico</a>
+              <a
+                href="../usuarios/usuarios.html"
+                class="nav-link hidden-feature"
+                id="manageUsersLinkMobile"
+                >Usuários</a
+              >
+              <a href="../ajustes/ajustes.html" class="nav-link">Ajustes</a>
+              <a href="#" class="nav-link" id="logoutButtonMobile">Sair</a>
+            </nav>
+          </div>
+        </div>
+
+        <main class="col-md-10 ms-sm-auto px-4 pt-4">
+          <!-- Filtros e pesquisa -->
+          <!-- Área de busca + botão filtros -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+            <div class="d-flex flex-grow-1 gap-2 align-items-center">
+              <input
+                type="text"
+                id="pesquisarCasos"
+                class="form-control"
+                placeholder="Pesquisar..."
+                style="max-width: 250px"
+              />
+              <button class="btn btn-sm custom-filter-btn" id="btnMostrarFiltros">
+                <i class="bi bi-filter"></i> Filtros
+              </button>
+            </div>
+          </div>
+
+          <!-- 🔥 Filtros Avançados (único e válido) -->
+          <div id="filtrosAvancados" class="border p-3 rounded bg-light mb-3 d-none">
+            <div class="row g-2">
+              <div class="col-md-3">
+                <label for="filtroStatus" class="form-label small">Status</label>
+                <select id="filtroStatus" class="form-select">
+                  <option value="">Todos</option>
+                  <option value="aberto">Aberto</option>
+                  <option value="em andamento">Em andamento</option>
+                  <option value="concluído">Concluído</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="filtroPerito" class="form-label small">Perito</label>
+                <input
+                  type="text"
+                  id="filtroPerito"
+                  class="form-control"
+                  placeholder="Nome do perito"
+                />
+              </div>
+              <div class="col-md-3">
+                <label for="filtroDataInicio" class="form-label small">Data inicial</label>
+                <input type="date" id="filtroDataInicio" class="form-control" />
+              </div>
+              <div class="col-md-3">
+                <label for="filtroDataFim" class="form-label small">Data final</label>
+                <input type="date" id="filtroDataFim" class="form-control" />
+              </div>
+            </div>
+
+            <div class="mt-3 text-end">
+              <button class="btn btn-primary btn-sm" id="btnAplicarFiltros">Aplicar Filtros</button>
+            </div>
+          </div>
+
+          <!-- Tabela de Casos -->
+          <section id="listaDeCasos" class="p-4 rounded bg-white text-dark shadow-sm">
+            <table class="table table-hover align-middle">
+              <thead style="background-color: #000; color: #fff">
+                <tr>
+                  <th>Código</th>
+                  <th>Data de abertura</th>
+                  <th>Perito Responsável</th>
+                  <th>Observação</th>
+                </tr>
+              </thead>
+              <tbody id="casosList">
+                <!-- Dados inseridos via JS -->
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between align-items-center mt-3 small text-muted">
+              <span id="totalCasosLabel">Total: --</span>
+              <div>
+                <button class="btn btn-sm btn-outline-secondary me-1" id="prevPage">‹</button>
+                <span id="paginaAtual">1 / 1</span>
+                <button class="btn btn-sm btn-outline-secondary ms-1" id="nextPage">›</button>
+              </div>
+            </div>
+          </section>
+
+          <div id="mensagem" class="mensagem mt-3 text-danger"></div>
+        </main>
+      </div>
+    </div>
+    <footer
+      style="
+        background-color: #121212;
+        color: #ffffff;
+        height: 40px;
+        padding: 0.25rem 1rem;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 1;
+      "
+    >
+      <div class="footer-left" style="display: flex; align-items: center; color: #ffffff">
+        <img src="../images/olin.png" alt="Logo" style="height: 20px; margin-right: 0.5rem" />
+        <span>© 2025 - OLIN</span>
+      </div>
+      <div class="footer-right" style="display: flex; align-items: center; color: #ffffff">
+        <span>Termos de uso • Privacidade • Política • Licença • Contato</span>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="banco-de-casos.js"></script>
+  </body>
+</html>
