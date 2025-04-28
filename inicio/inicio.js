@@ -148,12 +148,6 @@ function mostrarCasosPaginados() {
           <button class="btn btn-outline-info" onclick="visualizarCaso('${caso._id}')">
             <i class="bi bi-eye"></i>
           </button>
-          <button class="btn btn-outline-primary" onclick="editarCaso('${caso._id}')">
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button class="btn btn-outline-danger" onclick="confirmarExclusao('${caso._id}')">
-            <i class="bi bi-trash"></i>
-          </button>
         </div>
       </td>
     `;
@@ -275,55 +269,19 @@ async function visualizarCaso(id) {
 
     const caso = await response.json();
 
-    // Aqui você pode implementar um modal para mostrar os detalhes completos do caso
-    // Por enquanto, vamos apenas redirecionar para uma página de detalhes (que você precisaria criar)
+    // Guarda o caso no localStorage para abrir na outra página
     localStorage.setItem('casoAtual', JSON.stringify(caso));
-    window.location.href = `../detalhe-caso/detalhe-caso.html?id=${id}`;
+    window.location.href = `../casos/abrir-caso.html?id=${id}`;
   } catch (error) {
     console.error('Erro ao visualizar caso:', error);
     mostrarFeedback('Erro ao carregar detalhes do caso.', 'danger');
   }
 }
 
-// Editar um caso existente
-function editarCaso(id) {
-  // Neste exemplo, redirecionamos para uma página de edição
-  // Você pode implementar um modal de edição se preferir
-  window.location.href = `../editar-caso/editar-caso.html?id=${id}`;
-}
+window.visualizarCaso = visualizarCaso; // 👈 Torna a função acessível ao onclick
 
-// Confirmar exclusão de um caso
-function confirmarExclusao(id) {
-  if (confirm('Tem certeza que deseja excluir este caso?')) {
-    excluirCaso(id);
-  }
-}
-
-// Excluir um caso
-async function excluirCaso(id) {
-  try {
-    const token = localStorage.getItem('token');
-    const response = await fetch(`https://case-api-icfc.onrender.com/api/casos/${id}`, {
-      method: 'DELETE',
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error('Falha ao excluir caso');
-    }
-
-    // Recarregar casos
-    carregarCasos();
-
-    // Mostrar feedback de sucesso
-    mostrarFeedback('Caso excluído com sucesso!', 'success');
-  } catch (error) {
-    console.error('Erro ao excluir caso:', error);
-    mostrarFeedback('Erro ao excluir caso. Por favor, tente novamente.', 'danger');
-  }
-}
+// Atualizar a página com os novos dados
+carregarDetalhesCaso(casoId);
 
 // Mostrar mensagem de feedback
 function mostrarFeedback(mensagem, tipo) {
