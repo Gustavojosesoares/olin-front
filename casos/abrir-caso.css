@@ -1,252 +1,129 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OLIN</title>
+:root {
+  --cor-bordo-profundo: #380f17;
+  --cor-vinho-intenso: #8f0b13;
+  --cor-vermelho-vibrante: #dc2011;
+  --cor-bege-claro: #efdfc5;
+  --cor-cinza-escuro: #2c2f33;
+  --cor-cinza-medio: #3c3e42;
+}
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+/* ======================= MAIN  ======================= */
+.main-container {
+  padding-top: 80px; /* mantém o mesmo padding que estava inline */
+  background-color: #2c2f33 !important; /* fundo cinza claro */
+  min-height: 100vh; /* para cobrir a altura da tela inteira */
+  padding-bottom: 40px; /* espaço no final da página */
+  color: #efdfc5 !important;
+}
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    />
+/* Estilo do container de detalhes */
+#detalheCaso {
+  background-color: #3c3e42 !important; /* fundo branco */
+  border-radius: 12px; /* bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra bonita */
+  color: #efdfc5 !important;
+}
+/* Estilo para o campo de descrição */
+#descricaoCaso {
+  background-color: #2c2f33 !important;
+  border-left: 4px solid #dc2011;
+  padding: 1rem !important;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  max-height: 300px;
+  overflow-y: auto;
+  color: #efdfc5 !important;
+}
 
-    <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="abrir-caso.css" />
-  </head>
+/* Estilo para as linhas de informações */
+.row {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  color: #efdfc5 !important;
+}
 
-  <body>
-    <header>
-      <div class="d-flex align-items-center gap-4 header-right">
-        <div class="d-flex align-items-center gap-3 small text-muted">
-          <span><i class="bi bi-person-fill me-1"></i><strong id="userRoleDisplay"></strong></span>
-          <span><i class="bi bi-clock me-1"></i><span id="currentDateTime"></span></span>
-        </div>
-      </div>
-    </header>
+/* Estilo para as colunas de informações */
+.col-md-6 .mb-3 {
+  position: relative;
+  padding-left: 0.5rem;
+}
 
-    <!-- Menu lateral moderno para DESKTOP - mesmo do seu HTML original -->
-    <aside class="sidebar d-none d-md-flex flex-column align-items-center pt-4">
-      <!-- Logo -->
-      <div class="sidebar-logo mb-4 text-center">
-        <img src="../images/olin.png" alt="Logo" class="sidebar-logo-img" />
-        <div class="sidebar-logo-text">OLIN</div>
-      </div>
+/* Estilizando os títulos das informações */
+.col-md-6 h6.text-muted {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #aba8a3 !important;
+  margin-bottom: 0.3rem;
+}
 
-      <!-- Ícones de navegação -->
-      <nav class="nav flex-column text-center w-100">
-        <a href="../inicio/inicio.html" class="nav-link py-3" title="Início">
-          <i class="bi bi-house fs-5"></i>
-        </a>
-        <a
-          href="../banco-de-casos/banco-de-casos.html"
-          class="nav-link py-3"
-          title="Banco de Casos"
-        >
-          <i class="bi bi-archive fs-5"></i>
-        </a>
-        <a href="../historico/historico.html" class="nav-link py-3" title="Histórico">
-          <i class="bi bi-clock-history fs-5"></i>
-        </a>
-        <a
-          href="../usuarios/usuarios.html"
-          class="nav-link py-3 hidden-feature"
-          id="manageUsersLink"
-          title="Usuários"
-        >
-          <i class="bi bi-people fs-5"></i>
-        </a>
-        <a href="#" class="nav-link py-3" id="logoutButton" title="Sair">
-          <i class="bi bi-box-arrow-right fs-5"></i>
-        </a>
-      </nav>
-    </aside>
+/* Estilizando os valores das informações */
+.col-md-6 p {
+  font-weight: 500;
+  margin-bottom: 0;
+  padding: 0.3rem 0;
+}
 
-    <!-- Botão hamburguer para MOBILE -->
-    <div class="col-12 d-md-none text-end">
-      <button
-        class="btn m-3"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#menuMobile"
-        aria-controls="menuMobile"
-        aria-label="Toggle navigation"
-      >
-        <i class="bi bi-list fs-3"></i>
-      </button>
-    </div>
+/* Estilo para a seção de detalhe do caso */
+#detalheCaso {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem !important;
+}
 
-    <!-- Offcanvas lateral MOBILE -->
-    <div
-      class="offcanvas offcanvas-start d-md-none"
-      tabindex="-1"
-      id="menuMobile"
-      aria-labelledby="menuMobileLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="menuMobileLabel">CASE</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <nav class="nav flex-column">
-          <a href="../inicio/inicio.html" class="nav-link">Início</a>
-          <a href="../banco-de-casos/banco-de-casos.html" class="nav-link">Banco de Casos</a>
-          <a href="../historico/historico.html" class="nav-link">Histórico</a>
-          <a
-            href="../usuarios/usuarios.html"
-            class="nav-link hidden-feature"
-            id="manageUsersLinkMobile"
-            >Usuários</a
-          >
-          <a href="#" class="nav-link" id="logoutButtonMobile">Sair</a>
-        </nav>
-      </div>
-    </div>
+/* Título do caso */
+#tituloCaso {
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0;
+}
 
-    <main class="main-container">
-      <section id="detalheCaso" class="p-4 rounded bg-white text-dark shadow-sm">
-          <div
-            class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4"
-          >
-            <h4 id="tituloCaso">Carregando...</h4>
-            <div class="action-buttons">
-              <button id="evidenciasBtn" class="btn btn-evidencias">
-                <i class="bi bi-folder2-open"></i> Evidências
-              </button>
-              <button id="criarRelatorioBtn" class="btn btn-outline-success">
-                <i class="bi bi-file-earmark-text"></i> Criar Relatório
-              </button>
-              <button id="editarBtn" class="btn btn-outline-primary">
-                <i class="bi bi-pencil"></i> Editar
-              </button>
-              <button id="excluirBtn" class="btn btn-outline-danger">
-                <i class="bi bi-trash"></i> Excluir
-              </button>
-            </div>
-          </div>
+/* ======================= BOTÃO DE EVIDÊNCIAS ======================= */
+.btn-evidencias {
+  background-color: var(--cor-cinza-medio); /* Cinza médio como nos tons do projeto */
+  color: var(--cor-bege-claro);
+  border: 2px solid transparent;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
 
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
-                <h6 class="text-muted">Tipo do Caso</h6>
-                <p id="tipoCaso">Carregando...</p>
-              </div>
-              <div class="mb-3">
-                <h6 class="text-muted">Data de Abertura</h6>
-                <p id="dataCaso">Carregando...</p>
-              </div>
-              <div class="mb-3">
-                <h6 class="text-muted">Status</h6>
-                <p id="statusCaso">Carregando...</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mb-3">
-                <h6 class="text-muted">Local do Caso</h6>
-                <p id="localCaso">Carregando...</p>
-              </div>
-              <div class="mb-3">
-                <h6 class="text-muted">Perito Responsável</h6>
-                <p id="peritoResponsavel">Carregando...</p>
-              </div>
-              <div class="mb-3">
-                <h6 class="text-muted">Criado por</h6>
-                <p id="criadoPor">Carregando...</p>
-              </div>
-            </div>
-          </div>
+.btn-evidencias:hover {
+  background-color: var(--cor-bordo-profundo); /* Bordô profundo no hover */
+  border-color: var(--cor-vermelho-vibrante);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
 
-          <div class="mb-3">
-            <h6 class="text-muted">Descrição</h6>
-            <p id="descricaoCaso" class="p-3 bg-light rounded">Carregando...</p>
-          </div>
-        </section>
+.btn-evidencias i {
+  font-size: 1.2rem;
+}
 
-        <!-- Modal de Confirmação de Exclusão -->
-        <div
-          class="modal fade"
-          id="modalConfirmarExclusao"
-          tabindex="-1"
-          aria-labelledby="modalConfirmarExclusaoLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content bg-dark text-light">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalConfirmarExclusaoLabel">Confirmar Exclusão</h5>
-                <button
-                  type="button"
-                  class="btn-close btn-close-white"
-                  data-bs-dismiss="modal"
-                  aria-label="Fechar"
-                ></button>
-              </div>
-              <div class="modal-body">
-                Tem certeza que deseja excluir este caso? Essa ação não poderá ser desfeita.
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Cancelar
-                </button>
-                <button id="confirmarExclusaoBtn" type="button" class="btn btn-danger">
-                  Excluir
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="spinnerCarregando" class="text-center my-4" style="display: none">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Carregando...</span>
-          </div>
-          <p>Carregando dados do caso...</p>
-        </div>
+/* ======================= GRUPO DE BOTÕES (RESPONSIVO) ======================= */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
 
-        <!-- Mensagens / Feedback -->
-        <div id="mensagem" class="mensagem mt-3"></div>
-      </div>
-    </main>
+@media (max-width: 767.98px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    <footer
-      style="
-        background-color: #2c2f33;
-        color: #efdfc5;
-        height: 40px;
-        padding: 0.25rem 1rem;
-        font-size: 0.7rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        line-height: 1;
-      "
-    >
-      <div class="footer-left" style="display: flex; align-items: center; color: #efdfc5">
-        <img src="../images/olin.png" alt="Logo" style="height: 20px; margin-right: 0.5rem" />
-        <span>© 2025 - CASE</span>
-      </div>
-      <div class="footer-right" style="display: flex; align-items: center; color: #efdfc5">
-        <span>Termos de uso • Privacidade • Política • Licença • Contato</span>
-      </div>
-    </footer>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-
-    <script src="abrir-caso.js"></script>
-    <script src="../js/logout.js"></script>
-  </body>
-</html>
+  .action-buttons button {
+    width: 100%;
+  }
+}
