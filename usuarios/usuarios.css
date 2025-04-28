@@ -1,0 +1,354 @@
+/* ====================== TABELA DE USUÁRIOS ====================== */
+.table-responsive {
+  border-radius: var(--radius); /* Borda arredondada */
+  box-shadow: var(--shadow); /* Sombra suave */
+  overflow: hidden; /* Evita que a tabela ultrapasse as bordas */
+}
+
+.table {
+  margin-bottom: 0; /* Remove espaço extra abaixo da tabela */
+  border-collapse: separate; /* Mantém bordas separadas */
+  border-spacing: 0; /* Sem espaçamento entre células */
+}
+
+.table-dark {
+  background-color: var(--cor-cinza-medio); /* Fundo cinza escuro */
+}
+
+.table thead {
+  background-color: var(--cor-bordo-profundo); /* Cabeçalho fundo vinho escuro */
+  color: var(--cor-bege-claro); /* Texto claro */
+}
+
+.table thead th {
+  font-weight: 500;
+  text-transform: uppercase; /* Deixa letras maiúsculas */
+  font-size: 0.85rem;
+  padding: 1rem;
+  border-bottom: none; /* Sem borda inferior no cabeçalho */
+}
+
+.table tbody tr {
+  transition: var(--transition); /* Suaviza hover */
+}
+
+.table tbody tr:hover {
+  background-color: rgba(239, 223, 197, 0.05); /* Cor clara ao passar o mouse */
+}
+
+.table td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Linha superior leve nas células */
+}
+
+/* ====================== BOTÕES PERSONALIZADOS ====================== */
+.btn-custom {
+  border: 2px solid var(--cor-borda, #ff0000); /* Borda configurável */
+  background-color: transparent;
+  color: var(--cor-borda, #ff0000); /* Cor do texto igual à borda */
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn-custom:hover {
+  background-color: var(--cor-borda, #ff0000); /* Preenche com a cor da borda no hover */
+  color: #fff; /* Texto branco */
+  transform: translateY(-2px); /* Efeito "levantar" o botão */
+}
+
+/* Ícone dentro do botão */
+.btn-custom i {
+  font-size: 1.2rem;
+}
+
+/* ====================== FORMULÁRIOS ====================== */
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.form-control,
+.form-select {
+  border-radius: var(--radius);
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #dee2e6;
+  transition: var(--transition);
+}
+
+/* Ao focar no campo de formulário */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--cor-vinho-intenso);
+  box-shadow: 0 0 0 0.25rem rgba(143, 11, 19, 0.15);
+}
+
+/* ====================== BADGES PARA ROLES (FUNÇÕES DE USUÁRIO) ====================== */
+.role-badge {
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Diferentes cores para cada função */
+.role-admin {
+  background-color: var(--cor-vinho-intenso);
+  color: var(--text-light);
+}
+
+.role-user {
+  background-color: var(--info);
+  color: var(--text-light);
+}
+
+.role-perito {
+  background-color: var(--success);
+  color: var(--text-light);
+}
+
+.role-assistente {
+  background-color: var(--cor-cinza-medio);
+  color: var(--text-light);
+}
+
+/* ====================== ÁREA DE LISTAGEM ====================== */
+#listaDeCasos {
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+/* Ajuste para a tabela ocupar toda a tela */
+.table-responsive {
+  width: 100%;
+  background-color: #4c4f54 !important;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+  padding: 0;
+}
+
+/* Botão de cadastrar novo */
+#novoCasoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  background-color: transparent;
+  border: 2px solid var(--cor-vinho-intenso);
+  color: var(--cor-vinho-intenso);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: 0.3s ease;
+}
+
+#novoCasoBtn:hover {
+  background-color: var(--cor-vinho-intenso);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Remover container extra se tiver */
+.section-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* ====================== RESPONSIVIDADE PARA TELAS MENORES ====================== */
+@media (max-width: 767.98px) {
+  main {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .table td,
+  .table th {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .action-btn {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* ====================== ANIMAÇÃO DE ENTRADA ====================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Aplica fadeIn nas linhas da tabela */
+.table tbody tr {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Ajuste extra para botões pequenos em telas menores */
+@media (max-width: 576px) {
+  .btn-custom {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    gap: 0.4rem;
+  }
+
+  .btn-custom i {
+    font-size: 1rem;
+  }
+}
+
+/* ====================== ÁREA DE FILTRO/PESQUISA ====================== */
+.search-container {
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.search-input {
+  border-radius: var(--radius);
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  border-color: var(--cor-vinho-intenso);
+  box-shadow: 0 0 0 0.15rem rgba(143, 11, 19, 0.1);
+}
+
+/* ====================== STATUS DE USUÁRIO (ATIVO/INATIVO) ====================== */
+.status-badge {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status-active {
+  background-color: var(--success);
+}
+
+.status-inactive {
+  background-color: var(--cor-vermelho-vibrante);
+}
+
+/* ====================== TÍTULO DA PÁGINA ====================== */
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--cor-bordo-profundo);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--cor-bege-claro);
+}
+
+/* ====================== DASHBOARD DE ESTATÍSTICAS ====================== */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+/* Animação ao passar o mouse nos cards */
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Cabeçalho dos cards */
+.stat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+}
+
+/* Textos nos cards */
+.stat-title {
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--cor-vinho-intenso);
+}
+
+/* Alteração (ganho/perda) */
+.stat-change {
+  font-size: 0.85rem;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+}
+
+.stat-change.negative {
+  color: var(--cor-vermelho-vibrante);
+}
+
+/* ====================== PAGINAÇÃO ====================== */
+.pagination {
+  margin-top: 1.5rem;
+}
+
+.page-link {
+  color: var(--cor-vinho-intenso);
+  border: 1px solid #dee2e6;
+  transition: var(--transition);
+}
+
+.page-link:hover {
+  color: var(--cor-bordo-profundo);
+  background-color: rgba(239, 223, 197, 0.2);
+  border-color: #dee2e6;
+}
+
+.page-item.active .page-link {
+  background-color: var(--cor-vinho-intenso);
+  border-color: var(--cor-vinho-intenso);
+  color: white;
+}
