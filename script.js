@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // ✅ Salva token, id e role no localStorage
       localStorage.setItem('token', data.token); // token correto
-      localStorage.setItem('userId', data.user._id); // ID do usuário
+      localStorage.setItem('userId', data.user.email); // ID do usuário
       localStorage.setItem('userRole', data.user.role); // (se precisar de permissões)
 
       console.log('Login bem-sucedido!', data);
