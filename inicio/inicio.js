@@ -208,7 +208,15 @@ async function criarNovoCaso(event) {
 
   try {
     const token = localStorage.getItem('token');
-    const userData = JSON.parse(localStorage.getItem('userData'));
+    console.log(token);
+    const userData = JSON.parse(localStorage.getItem('usuarioAtual'));
+    console.log(userData);
+
+    if (!userData || !userData.id) {
+      alert('Sessão inválida, faça login novamente.');
+      window.location.href = './index.html';
+      return;
+    }
 
     const novoCaso = {
       titulo,
@@ -278,10 +286,7 @@ async function visualizarCaso(id) {
   }
 }
 
-window.visualizarCaso = visualizarCaso; // 👈 Torna a função acessível ao onclick
-
-// Atualizar a página com os novos dados
-carregarDetalhesCaso(casoId);
+window.visualizarCaso = visualizarCaso; // Torna a função acessível ao onclick
 
 // Mostrar mensagem de feedback
 function mostrarFeedback(mensagem, tipo) {
